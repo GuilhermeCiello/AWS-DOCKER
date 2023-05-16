@@ -20,7 +20,7 @@ Acesso ao serviço VPC;
 - Criação da instância onde ficará a aplicação sem ip público, acesso feito através do Bastion Host.
 # Instalação e Configuração do Docker na instância
 - Criação de uma instância EC2 com ambiente AWS Linux 2.
-- Durante a criação da instância, no campo "User data", foi adicionado o script abaixo para instalação automática do Docker:
+- Durante a criação da instância, no campo "User data", foi adicionado o script abaixo para instalação automática do Docker e docker-compose.
 
 #!/bin/bash
 - sudo yum update -y
@@ -48,7 +48,8 @@ Acesso ao serviço VPC;
 - Acesso ao serviço RDS;
 - Escolha do Banco MYSQL;
 - Seleção da VPC e do security group criados para o projeto;
-- 
+- Criação do nome do banco, usuário, e senha.
+-
 # Uso do Docker
 Execução do script através do comando “docker-compose up -d” em segundo plano.
 Script:
@@ -94,6 +95,6 @@ Script:
 
 
 # Configuração do Auto Scaling
-Criação de uma AMI da instância usada;
-Criação de um lauch configuration com base na AMI criada;
-Criação do grupo de Auto Scaling e associando ele ao target group.
+- Criação de uma AMI da instância usada;
+- Criação de um lauch configuration com base na AMI criada;
+- Criação do grupo de Auto Scaling e associando ele ao target group.
