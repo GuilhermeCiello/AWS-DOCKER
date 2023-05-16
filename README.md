@@ -71,7 +71,6 @@ Script:
 - volumes:
 -  mysql: {}
 
-Acesso ao endereço IP da instância EC2 no navegador para verificar se o Wordpress está funcionando.
 
 # Criação do target group
 - Seleção das instâncias que o LB irá atuar e habilitar o balanceamento de carga;
