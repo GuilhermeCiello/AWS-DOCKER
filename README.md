@@ -27,13 +27,13 @@ Acesso ao serviço VPC;
 - mv /usr/local/bin/docker-compose /bin/docker-compose
 
 # Upload no GitHub
-- Criação de um repositório destinado para o trabalho.
-- Download do Git na instância através do comando “sudo yum install git”.
-- Inicialização do Git usando o comando “git init”.
-- Comando “git status” para verificar se há arquivo(s) não adicionado(s) e comando “git add “[nome do arquivo]”” para adicioná-lo(s).
-- Configuração do git com os comandos “git config --global user.email “[email]”” e “git config --global user.name “[nome]””.
-- Commit através do comando “git commit -m “nome do commit”
-- Configuração do EFS
+- Criação de um repositório destinado para o trabalho "AWS-DOCKER";
+- Inicialização do Git usando o comando “git init”;
+- Comando “git status” para verificar se há arquivo(s) não adicionado(s) e comando “git add “[nome do arquivo]”” para adicioná-lo(s);
+- Configuração do git com os comandos “git config --global user.email “[email]”” e “git config --global user.name “[nome]”;
+- Commit através do comando “git commit -m “nome do commit”;
+- Comando "git push" para enviar o conteúdo do repositório local para um repositório remoto.
+# Configuração do EFS
 - Criação do EFS  no console AWS;
 - Acesso à instância ec2;
 - montando o EFS dentro do diretório /etc/fstab fs-07326fcfc0b337ad6.efs.us-east-1.amazonaws.com:/ home/ec2-user/efs nfs4 - nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0;
@@ -43,45 +43,47 @@ Acesso ao serviço VPC;
 Execução do script através do comando “docker-compose up -d” em segundo plano.
 Script:
 
-version: "3"
-services:
-  db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_HOST: database-2.cdhzsu6mbxkf.us-east-1.rds.amazonaws.com
-      MYSQL_ROOT_PASSWORD: senhabanco
-      MYSQL_DATABASE: bancoDeDados
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: senhabanco
-  wordpress:
-    depends_on:
-      - db
-    image: wordpress:latest
-    restart: always
-    ports:
-      - "80:80"
-    environment:
-      WORDPRESS_DB_HOST: database-2.cdhzsu6mbxkf.us-east-1.rds.amazonaws.com
-      WORDPRESS_DB_USER: admin
-      WORDPRESS_DB_PASSWORD: senhabanco
-      WORDPRESS_DB_NAME: bancoDeDados
-    volumes:
-      - "/var/www/html:/home/ec2-user/efs"
-volumes:
-  mysql: {}
+- version: "3"
+- services:
+-  db:
+-   image: mysql:5.7
+-   restart: always
+-   environment:
+-     MYSQL_HOST: database-2.cdhzsu6mbxkf.us-east-1.rds.amazonaws.com
+-     MYSQL_ROOT_PASSWORD: senhabanco
+-     MYSQL_DATABASE: bancoDeDados
+-     MYSQL_USER: admin
+-     MYSQL_PASSWORD: senhabanco
+ - wordpress:
+  -  depends_on:
+  -    - db
+  -  image: wordpress:latest
+  - restart: always
+  -  ports:
+   -   - "80:80"
+   - environment:
+     - WORDPRESS_DB_HOST: database-2.cdhzsu6mbxkf.us-east-1.rds.amazonaws.com
+    - WORDPRESS_DB_USER: admin
+    - WORDPRESS_DB_PASSWORD: senhabanco
+    -  WORDPRESS_DB_NAME: bancoDeDados
+   - volumes:
+  -    - "/var/www/html:/home/ec2-user/efs"
+- volumes:
+-  mysql: {}
 
 Acesso ao endereço IP da instância EC2 no navegador para verificar se o Wordpress está funcionando.
 
+# Criação do target group
+- Seleção das instâncias que o LB irá atuar e habilitar o balanceamento de carga;
+- Adição das intâncias no target group para associa-lás ao Load Balancer.
+
 # Configuração do Load Balancer
-Acesso ao serviço EC2.
-Criação do Classic Load Balancer:
-Configuração do LB (nome, VPC, security groups...)
-Ativar as verificações de integridade de instâncias.
-# Criação do target group;
-Seleção das instâncias que o LB irá atuar e habilitar o balanceamento de carga.
-Configuração do LB para permitir a saída tráfego de internet.
-Adição de tags.
+- Acesso ao serviço EC2;
+- Criação do Aplication Load Balancer:
+- Configuração do Load Balancer (nome, VPC, security groups...);
+- Adição do target group criado anteriormente.
+
+
 # Configuração do Auto Scaling
 Criação de uma AMI da instância usada;
 Criação de um lauch configuration com base na AMI criada;
