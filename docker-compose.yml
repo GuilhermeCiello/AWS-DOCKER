@@ -22,6 +22,6 @@ services:
       WORDPRESS_DB_PASSWORD: senhabanco
       WORDPRESS_DB_NAME: bancoDeDados
     volumes:
-      - "/var/www/html:/home/ec2-user/efs"
+      - "/home/ec2-user/efs:/var/www/html"
 volumes:
   mysql: {}
