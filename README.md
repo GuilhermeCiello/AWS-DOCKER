@@ -83,6 +83,7 @@ volumes:
 
 
 
+
 # Criação do target group
 - Seleção das instâncias que o LB irá atuar e habilitar o balanceamento de carga;
 - Adição das intâncias no target group para associa-lás ao Load Balancer.
