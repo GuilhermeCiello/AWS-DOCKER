@@ -2,7 +2,7 @@
 Trabalho sobre AWS e Docker
 # Implantação do Wordpress com Docker e AWS
 # Descrição
-O projeto tem como objetivo a criação de uma aplicação Wordpress em uma instância Amazon EC2 com ambiente baseado em Linux utilizando Docker-Compose junto do Wordpress em uma instância RDS com o banco de dados MYSQL. Também foram criados uma instância a mais para funcionar como Bastion Host para o acesso da instância principal, uma VPC para as instâncias, um Load Balancer para a organização do tráfego, o auto scaling group para tornar a aplicaçãoescalável. O EFS foi usado para o armazenamento estático dos arquivos.
+O projeto tem como objetivo a criação de uma aplicação Wordpress em uma instância Amazon EC2 com ambiente baseado em Linux utilizando Docker-Compose junto do Wordpress em uma instância RDS com o banco de dados MYSQL. Também foram criados uma instância a mais para funcionar como Bastion Host para o acesso da instância principal, uma VPC para as instâncias, um Load Balancer para a organização do tráfego, o auto scaling group para tornar a aplicação escalável. O EFS foi usado para o armazenamento estático dos arquivos.
 
 # Configuração da VPC
 Acesso ao serviço VPC;
@@ -33,7 +33,7 @@ Acesso ao serviço VPC;
 # Upload no GitHub
 - Criação de um repositório destinado para o trabalho "AWS-DOCKER";
 - Inicialização do Git usando o comando “git init”;
-- Comando “git status” para verificar se há arquivo(s) não adicionado(s) e comando “git add “[nome do arquivo]”” para adicioná-lo(s);
+- Comando “git status” para verificar se há arquivo(s) não adicionado(s) e comando “git add “[nome do arquivo]” para adicioná-lo(s);
 - Configuração do git com os comandos “git config --global user.email “[email]” e “git config --global user.name “[nome]”;
 - Commit através do comando “git commit -m “nome do commit”;
 - Comando "git push" para enviar o conteúdo do repositório local para um repositório remoto.
