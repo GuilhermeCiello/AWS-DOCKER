@@ -53,34 +53,33 @@ mv /usr/local/bin/docker-compose /bin/docker-compose
 # Uso do Docker
 Execução do script através do comando “docker-compose up -d” em segundo plano.
 
-- version: "3"
+version: "3"
 services:
-  db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_HOST: database-2.cdhzsu6mbxkf.us-east-1.rds.amazonaws.com
-      MYSQL_ROOT_PASSWORD: senhabanco
-      MYSQL_DATABASE: bancoDeDados
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: senhabanco
-  wordpress:
-    depends_on:
-      - db
-    image: wordpress:latest
-    restart: always
-    ports:
-      - "80:80"
-    environment:
-      - WORDPRESS_DB_HOST: database-2.cdhzsu6mbxkf.us-east-1.rds.amazonaws.com
-      - WORDPRESS_DB_USER: admin
-      - WORDPRESS_DB_PASSWORD: senhabanco
-      - WORDPRESS_DB_NAME: bancoDeDados
-    volumes:
-      - "/home/ec2-user/efs:/var/www/html"
+db:
+  image: mysql:5.7
+  restart: always
+  environment:
+    - MYSQL_HOST: database-2.cdhzsu6mbxkf.us-east-1.rds.amazonaws.com
+    - MYSQL_ROOT_PASSWORD: senhabanco
+    - MYSQL_DATABASE: bancoDeDados
+    - MYSQL_USER: admin
+    - MYSQL_PASSWORD: senhabanco
+wordpress:
+  depends_on:
+    - db
+  image: wordpress:latest
+  restart: always
+  ports:
+    - "80:80"
+  environment:
+    - WORDPRESS_DB_HOST: database-2.cdhzsu6mbxkf.us-east-1.rds.amazonaws.com
+    - WORDPRESS_DB_USER: admin
+    - WORDPRESS_DB_PASSWORD: senhabanco
+    - WORDPRESS_DB_NAME: bancoDeDados
+  volumes:
+    - "/home/ec2-user/efs:/var/www/html"
 volumes:
-  mysql: {}
-
+mysql: {}
 
 
 
