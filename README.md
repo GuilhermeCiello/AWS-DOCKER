@@ -2,7 +2,7 @@
 Trabalho sobre AWS e Docker
 # Implantação do Wordpress com Docker e AWS
 # Descrição
-O projeto tem como objetivo a criação de uma aplicação Wordpress em uma instância Amazon EC2 com ambiente baseado em Linux utilizando Docker-Compose junto de um sistema livre para gestão de conteudo na internet, o Wordpress em uma instância RDS com o banco de dados MYSQL. Além da instância principal, o Docker-Compose e o Wordpress, também foram necessários criar uma instância a mais para funcionar como Bastion Host para o acesso da principal, uma VPC para as instâncias e um Load Balancer para a organização do tráfego. Também foi usado EFS para o armazenamento estático dos arquivos.
+O projeto tem como objetivo a criação de uma aplicação Wordpress em uma instância Amazon EC2 com ambiente baseado em Linux utilizando Docker-Compose junto do Wordpress em uma instância RDS com o banco de dados MYSQL. Também foram criados uma instância a mais para funcionar como Bastion Host para o acesso da instância principal, uma VPC para as instâncias, um Load Balancer para a organização do tráfego, o auto scaling group para tornar a aplicaçãoescalável. O EFS foi usado para o armazenamento estático dos arquivos.
 
 # Configuração da VPC
 Acesso ao serviço VPC;
