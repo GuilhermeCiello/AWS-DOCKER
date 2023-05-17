@@ -36,6 +36,8 @@ mv /usr/local/bin/docker-compose /bin/docker-compose
 - Comando “git status” para verificar se há arquivo(s) não adicionado(s) e comando “git add “[nome do arquivo]” para adicioná-lo(s);
 - Configuração do git com os comandos “git config --global user.email “[email]” e “git config --global user.name “[nome]”;
 - Commit através do comando “git commit -m “nome do commit”;
+- Criação de um token de acesso;
+- Configuração do github cli com o token de acesso;
 - Comando "git push" para enviar o conteúdo do repositório local para um repositório remoto.
 
 # Configuração do EFS
@@ -89,7 +91,7 @@ Execução do script através do comando “docker-compose up -d” em segundo p
 
 # Configuração do Load Balancer
 - Acesso ao serviço EC2;
-- Criação do Aplication Load Balancer:
+- Criação do Aplication Load Balancer;
 - Configuração do Load Balancer (nome, VPC, security groups);
 - Adição do target group criado anteriormente.
 
