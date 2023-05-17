@@ -23,12 +23,12 @@ Acesso ao serviço VPC;
 - Durante a criação da instância, no campo "User data", foi adicionado o script abaixo para instalação automática do Docker e docker-compose.
 
 #!/bin/bash
-- sudo yum update -y
-- sudo yum install -y docker
-- sudo systemctl  docker start
-- sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-- sudo chmod +x /usr/local/bin/docker-compose
-- mv /usr/local/bin/docker-compose /bin/docker-compose
+sudo yum update -y  
+sudo yum install -y docker  
+sudo systemctl start docker  
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose  
+sudo chmod +x /usr/local/bin/docker-compose  
+mv /usr/local/bin/docker-compose /bin/docker-compose  
 
 # Upload no GitHub
 - Criação de um repositório destinado para o trabalho "AWS-DOCKER";
