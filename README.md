@@ -53,7 +53,7 @@ mv /usr/local/bin/docker-compose /bin/docker-compose
 # Uso do Docker
 Execução do script através do comando “docker-compose up -d” em segundo plano.
 
-version: "3"
+-version: "3"
 services:
   db:
     image: mysql:5.7
