@@ -41,7 +41,7 @@ Acesso ao serviço VPC;
 # Configuração do EFS
 - Criação do EFS  no console AWS;
 - Acesso à instância ec2;
-- montando o EFS dentro do diretório /etc/fstab fs-07326fcfc0b337ad6.efs.us-east-1.amazonaws.com:/ home/ec2-user/efs nfs4 - nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0;
+- montando o EFS dentro do diretório /etc/fstab ´fs-07326fcfc0b337ad6.efs.us-east-1.amazonaws.com:/ home/ec2-user/efs nfs4 - nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0´;
 - Comando sudo mount -a para montar.
 
 # Configuração do RDS
@@ -90,11 +90,11 @@ Script:
 # Configuração do Load Balancer
 - Acesso ao serviço EC2;
 - Criação do Aplication Load Balancer:
-- Configuração do Load Balancer (nome, VPC, security groups...);
+- Configuração do Load Balancer (nome, VPC, security groups);
 - Adição do target group criado anteriormente.
 
 
 # Configuração do Auto Scaling
 - Criação de uma AMI da instância usada;
-- Criação de um lauch configuration com base na AMI criada;
+- Criação de um launch configuration com base na AMI criada;
 - Criação do grupo de Auto Scaling e associando ele ao target group.
