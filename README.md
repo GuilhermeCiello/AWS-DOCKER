@@ -52,7 +52,7 @@ mv /usr/local/bin/docker-compose /bin/docker-compose
 
 # Uso do Docker
 Execução do script através do comando “docker-compose up -d” em segundo plano.
-Script:
+
 version: "3"
 services:
   db:
